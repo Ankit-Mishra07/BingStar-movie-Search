@@ -1,0 +1,90 @@
+*{
+    margin:0px;
+    padding:0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body {
+    background-color: #3A4A59;
+}
+li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+/* navbar */
+#nav {
+    background-color: #131A27;
+    color:white;
+    padding:30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#nav-list {
+    display: flex;
+}
+
+#nav-list a {
+    Color:white;
+    margin:0px 10px;
+}
+
+#search_movies {
+    width:400px;
+    padding:5px;
+    color: white;
+    background-color: #141A28;
+    border-bottom: 1px solid white;
+}
+
+#SIGNUP {
+    background-color: rgb(62, 62, 212);
+    color:white;
+    padding:5px;
+    border-radius: 5px;
+}
+#LOGIN {
+    background-color: rgb(15, 13, 13);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+#showmovie {
+    width:400px;
+    border: 1px solid rgb(128, 128, 182);
+    height:600px;
+    box-shadow: 0 14px 18px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: absolute;
+    background-color: black;
+    color:white;
+    overflow: auto;
+    white-space: nowrap;
+    display: none;
+
+}
+#showmovie div {
+    background-color: rgb(56, 50, 50);
+
+}
+
+.result {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+.result img {
+    height: 150px;
+    width:200px !important;
+    border-radius: 10px;
+}
+.yt {
+    margin-left: 20px;
+}
+
+

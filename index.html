@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bing+Star</title>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+     <div id="nav">
+
+        <ul id="nav-list">
+            <a href="index.html"><li>Bing Star</li></a>
+            <a href="TV.html"><li>TV</li></a>
+            <a href="movies.html"><li>Movies</li></a>
+            <a href="sports.html"><li>Sports</li></a>
+            <a href="subscribe.html"><li>Bing+</li></a>
+            <a href="kids.html"><li>KIDS</li></a>
+        </ul>
+        <div>
+            <input type="text" id="search_movies" placeholder="Search">
+            <button id="SIGNUP">BingVIP</button>
+            <button id="LOGIN">LOGIN</button>
+
+            <div id="showmovie">
+              
+            </div>
+
+        </div>
+
+        
+
+     </div>
+</body>
+</html>
+
+<!-- <script type="module">
+
+    import {navbar} from "./component/navbar.js"
+
+    let nav = document.getElementById("nav")
+    nav.innerHTML = navbar()
+
+</script> -->
+
+<script>
+    let showmovie = document.getElementById("showmovie")
+
+    let timerId;
+
+    let body = document.querySelector("body")
+    body.addEventListener("click" , hide_showmovie)
+
+    function hide_showmovie() {
+        showmovie.style.display = "none"
+    }
+
+    // for search input
+
+    let search_movies = document.getElementById("search_movies")
+
+    search_movies.addEventListener("input" , debounce)
+
+    
+    async function showSearchResult(movie_name) {
+            let res = await fetch(`http://www.omdbapi.com/?apikey=2b79427&s=${movie_name}`)
+            let data = await res.json()
+            return data.Search
+    }
+
+    function appendSearched(searched_result) {
+        
+    
+    searched_result.forEach(({Title,imdbID,Poster,Year}) => {
+       
+    let div = document.createElement("div")
+    div.setAttribute("class" , "result")
+  
+    let poster = document.createElement("img")
+    poster.src = Poster
+
+    let title = document.createElement("p")
+    title.setAttribute("class" , "title")
+    title.innerText = Title
+
+
+    div.onclick = function() {
+        addtodetail(imdbID)
+    }
+    
+
+    let year = document.createElement("p")
+    year.textContent = Year
+
+    let yt = document.createElement("div")
+    yt.setAttribute("class" , "yt")
+
+    yt.append(title,year)
+
+    div.append(poster,yt)
+
+    showmovie.append(div)
+        })
+    }
+
+   
+    async function main() {
+
+        let name = document.getElementById("search_movies").value
+    
+        let getresponse = await showSearchResult(name)
+
+        appendSearched(getresponse)
+    }
+
+    function debounce() {
+
+        showmovie.innerHTML = null
+        showmovie.style.display = "block"
+        if(timerId) {
+            clearTimeout(timerId)
+        }
+
+        timerId = setTimeout(() => {
+
+            main()
+
+        },1000)
+    }
+    
+
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup/Signin - Bing+Star</title>
+    <link rel="stylesheet" href="./styles/login.css">
+</head>
+<body>
+    
+<div class="login-container">
+    <div class="login-formbox">
+        <div class="login-button-box">
+            <div id="toggle"></div>
+            <button type="button" class="login-btn" id="login-btnn" onclick="Showlogin()">LogIn</button>
+            <button type="button" class="login-btn" id="register-btnn" onclick="Showregister()">Register</button>
+        </div>
+
+        
+
+        <form action="" id="login-form" class="inputs-grp">
+            <p id="logmsg"></p>
+            <input type="text" id="user" class="input1" placeholder="username">
+            <input type="password" id="pass" class="input1" placeholder="password">
+            <input type="checkbox" class="check-box"> <span>Remember me</span>
+            <button type="submit" class="login-submit" id="LOGIN">Login</button>
+        </form>
+        <form action="" id="signup-form" class="inputs-grp">
+            <p id="regmsg"></p>
+            <input type="text" id="name" class="input1" placeholder="name">
+            <input type="email" id="email" class="input1" placeholder="email">
+            <input type="password" id="password" class="input1" placeholder="password">
+            <input type="text" id="username" class="input1" placeholder="username">
+            <input type="number" id="mobile" class="input1" placeholder="mobile">
+            <input type="text" id="description" class="input1" placeholder="description">
+            <input type="checkbox" class="check-box"> <span>I agree terms & conditions</span>
+            <button type="submit" class="login-submit" id="SIGNUP">Register</button>
+            
+            
+        </form>
+
+    </div>
+</div>
+
+</body>
+
+<script src="login.js"></script>
+</html>

@@ -1,0 +1,101 @@
+* {
+    margin:0px;
+    padding:0px;
+    font-family: sans-serif;
+}
+
+.login-container{
+    background-color: #1A2233;
+    width:100%;
+    height:100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-formbox {
+    position: relative;
+    width:380px;
+    height: 480px;
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 10px 0 rgba(238, 169, 169, 0.2), 0 20px 50px 0 rgba(235, 142, 142, 0.19);
+    overflow: hidden;
+}
+.login-button-box {
+    width:220px;
+    margin:20px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px #ff61241f;
+    border-radius: 30px;
+}
+#toggle {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width:110px;
+    height:100%;
+    background: #8190b1;
+    border-radius: 30px;
+    transition: 0.5s;
+}
+.login-btn {
+    border: 0;
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    position: relative;
+    text-align: center;
+}
+
+.inputs-grp {
+    top:130px;
+    position: absolute;
+    width:300px;
+    transition: .5s;
+}
+.input1 {
+    width:100%;
+    padding: 10px 0;
+    margin: 5px 0px;
+    border: none;
+    border-bottom: 1px solid #8190b1;
+    outline: none;
+    background: transparent;
+    
+}
+.login-submit {
+    width:85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: #8190b1 ;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+}
+.check-box {
+    margin:30px 10px 30px 0px;
+}
+.span {
+    font-size: 12px;
+    color:#777;
+    position: absolute;
+    bottom:68px;
+}
+
+#login-form {
+    left:50px
+}
+#signup-form {
+    top:80px;
+    left:450px;
+}
+#regmsg {
+    text-align: center;
+    font-size: 12px
+}
