@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body {
+    background-image: url("https://images5.alphacoders.com/414/thumb-1920-414718.jpg");
+    background-size: cover;
+}
+
+#container {
+    width:100%;
+    height:100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+}
+
+#box {
+    background-color: #131A27;
+    box-shadow: 0 10px 10px 0 rgba(252, 250, 250, 0.9), 0 20px 50px 0 rgba(231, 229, 229, 0.9);
+    width:500px;
+    height:550px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+#content {
+
+    padding:10px;
+
+}
+#content > div {
+    padding:20px;
+    color:white;
+}
+#content > div p {
+    margin-top: 15px;border-bottom: 1px solid grey;
+    padding-bottom: 10px;
+    font-size: 18px;
+}
+#content > div span {
+    float:right;
+}
+#vip-btn {
+    padding: 20px;
+    width:400px;
+    margin:50px 40px;
+    border:2px solid blue;
+    background-color: #184373;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+#your-num {
+    text-align: center;
+    color: white;
+}
