@@ -21,7 +21,8 @@
         <div>
             <input type="text" id="search_movies" placeholder="Search">
             <button id="SIGNUP">BingVIP</button>
-            <button id="LOGIN">LOGIN</button>
+            <a href="login.html"><button id="LOGIN" >LOGIN</button></a> <span id="user__name"></span>
+            
 
             <div id="showmovie">
               
@@ -130,4 +131,20 @@
     }
     
 
+    let getdata = JSON.parse(localStorage.getItem("Bing-login"))
+    if(getdata.length >= 1) {
+    let user__ = getdata[getdata.length-1]
+    let user__name = document.getElementById("user__name")
+    user__name.innerText = user__.name
+    
+
+    }
+
+    let user__name = document.getElementById("user__name")
+    if(user__name.innerText !== "") {
+        let LOGINn = document.getElementById("LOGIN")
+        LOGINn.style.display = "none"
+    }
+
+    
 </script>
