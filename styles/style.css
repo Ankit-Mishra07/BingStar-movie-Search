@@ -16,12 +16,13 @@ a {
 /* navbar */
 #nav {
     background-color: #131A27;
+    width: 100%;
     color:white;
     padding:30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
+    position: fixed;
 }
 
 #nav-list {
@@ -85,6 +86,22 @@ a {
 }
 .yt {
     margin-left: 20px;
+}
+
+#user__name {
+    cursor: pointer;
+}
+
+#logout {
+    position: absolute;
+    top:65px;
+    cursor: pointer;
+    right:40px;
+    padding: 10px 10px ;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(224, 11, 11);
+    display: none;
 }
 
 

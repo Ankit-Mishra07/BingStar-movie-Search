@@ -9,8 +9,9 @@ your_num.innerText ="You are Logged In with"+ " " + num
 }
 
 function vip(){
-
-    if(your_num.innerText === "") {
+    let your_num = document.getElementById("your-num")
+    if(your_num.innerText == "") {
+        alert("Please Register First To Be Our VIP Member")
         window.location.href = "login.html"
     }else {
         window.location.href = "payment.html"

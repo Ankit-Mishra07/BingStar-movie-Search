@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+a{
+    text-decoration: none;
+}
+body {
+    background-color: #131A27;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width:100%;
+    height:100%;
+
+}
+
+#box {
+    width:380px;
+    height:450px;
+    background-color: white;
+    box-shadow: 0 10px 10px 0 rgba(252, 250, 250, 0.2), 0 20px 50px 0 rgba(231, 229, 229, 0.2);
+    margin: auto;
+    border-radius: 5px;
+    padding:20px;
+}
+#box h2 {
+    text-align: center;
+    color:rgb(39, 39, 104)
+}
+.card {
+    width:100%;
+}
+
+#form {
+    margin-top: 30px;
+}
+#form input {
+    padding: 10px 0px;
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 1px solid grey;
+}
+.check {
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.mem-btn {
+    width:80%;
+    padding: 13px 5px;
+    margin-left: 30px;
+    margin-top: 30px;
+    background-color: rgb(31, 31, 248);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#congo {
+    color: white;
+    background-color: rgb(3, 3, 39);
+    font-size: 30px;
+    margin-top: 50px;
+    padding:20px;
+    display: none;
+}
+

@@ -121,6 +121,8 @@ function login(event) {
             },4000)
 
         }else {
+            form.user.value = ""
+            form.pass.value = ""
             fetchmydata(user_data.username, res.token)
         }
 

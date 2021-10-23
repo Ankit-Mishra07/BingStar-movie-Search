@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/card_detail.css">
+    <title>Bing+Star - Card Details</title>
+</head>
+<body>
+
+    <p id="congo"></p>
+    <div id="container">
+        
+        <div id="box">
+            
+            <h2>BING STAR</h2>
+    <form action="" id="form">
+        <input type="text" placeholder="Card Holder Name" class="card" id="name">
+        <input type="number" placeholder="Card Number" class="card" id="number">
+        <input type="number" placeholder="MM/YY" class="num" id="mm">
+        <input type="number" placeholder="CVV" class="num" id="cvv">
+        <input type="checkbox" class="check" id="checked"><span>I am over 18, and I agree to the above conditions and the Terms of Use and Privacy Policy.</span> <br>
+        <button class="mem-btn" onclick="home()">START VIP MEMBERSHIP</button>
+    </form>
+
+    </div>
+    </div>
+</body>
+</html>
+
+<script>
+    function home() {
+        let form = document.getElementById("form")
+        
+        let box = document.querySelector("#container")
+        let congo = document.getElementById("congo")
+        if(form.name.value !== "" && form.number.value !== "" && form.mm.value !== "" && form.cvv.value !== "") {
+            box.innerHTML = null
+            congo.style.display = "block"
+            congo.innerText = "WELCOME TO VIP MEMBERSHIP OF BING STAR"
+            
+            
+            setTimeout(() => {
+                window.location.href = "index.html"
+            },3000)
+    
+        }else {
+            alert("Please Fill All The Credentials")
+        }
+    }
+</script>

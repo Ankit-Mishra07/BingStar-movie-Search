@@ -20,9 +20,9 @@
         </ul>
         <div>
             <input type="text" id="search_movies" placeholder="Search">
-            <button id="SIGNUP">BingVIP</button>
+            <a href="vip.html"><button id="SIGNUP">BingVIP</button></a>
             <a href="login.html"><button id="LOGIN" >LOGIN</button></a> <span id="user__name"></span>
-            
+            <button id="logout">Logout</button>
 
             <div id="showmovie">
               
@@ -144,6 +144,37 @@
     if(user__name.innerText !== "") {
         let LOGINn = document.getElementById("LOGIN")
         LOGINn.style.display = "none"
+    }
+
+    user__name.addEventListener("click" , showLogout)
+
+    let logout = document.getElementById("logout")
+    logout.addEventListener("click" , log_out)
+
+    let flag_out = true
+    function showLogout() {
+       
+        if(flag_out) {
+        logout.style.display = "block"
+        flag_out = false
+        } else {
+            logout.style.display = "none"
+            flag_out = true
+        }
+    }
+
+    function log_out() {
+        
+
+        JSON.parse(localStorage.removeItem("Bing-login"))
+   
+        
+        logout.style.display = "none"
+        let LOGINn = document.getElementById("LOGIN")
+        LOGINn.style.display = "block"
+
+        window.location.href = "index.html"
+
     }
 
     
