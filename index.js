@@ -33,6 +33,10 @@ import {navbar} from "./component/navbar.js"
     
     searched_result.forEach(({Title,imdbID,Poster,Year}) => {
        
+        if(Title == undefined) {
+            return false
+        }
+
     let div = document.createElement("div")
     div.setAttribute("class" , "result")
   
