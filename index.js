@@ -23,43 +23,59 @@ import {navbar} from "./component/navbar.js"
 
     
     async function showSearchResult(movie_name) {
-            let res = await fetch(`http://www.omdbapi.com/?apikey=2b79427&s=${movie_name}`)
+            let res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=953076d46292d5b9b918b65d89cc9419&query=${movie_name}`)
             let data = await res.json()
-            return data.Search
+            return data.results
     }
 
     function appendSearched(searched_result) {
-        
+        console.log("search:", searched_result)
     
-    searched_result.forEach(({Title,imdbID,Poster,Year}) => {
-       
-        if(Title == undefined) {
-            return false
-        }
-
+    searched_result.forEach((Sdata) => {
+       console.log(Sdata)
     let div = document.createElement("div")
     div.setAttribute("class" , "result")
+
+    let Simg = Sdata.poster_path
+
+    if(Simg === null) {
+        Simg = Sdata.backdrop_path
+    }
+    if(Simg == null) {
+        Simg = Sdata.poster_path
+    }
   
     let poster = document.createElement("img")
-    poster.src = Poster
+    poster.src = `https://image.tmdb.org/t/p/w500${Simg}`
 
-    let title = document.createElement("p")
-    title.setAttribute("class" , "title")
-    title.innerText = Title
+    let Stitle = Sdata.title
+
+    if(Stitle== undefined) {
+        Stitle = Sdata.original_title
+    }
+
+    let Title = document.createElement("p")
+    Title.setAttribute("class" , "title")
+    Title.innerText = Stitle
 
 
     div.onclick = function() {
-        addtodetail(imdbID)
+        addtodetail(Sdata)
     }
     
+    let Syear = Sdata.release_date
+
+    if(Syear == undefined) {
+        Syear = Sdata.first_air_date
+    }
 
     let year = document.createElement("p")
-    year.textContent = Year
+    year.textContent = Syear.split("-")[0]
 
     let yt = document.createElement("div")
     yt.setAttribute("class" , "yt")
 
-    yt.append(title,year)
+    yt.append(Title,year)
 
     div.append(poster,yt)
 
