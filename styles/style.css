@@ -24,11 +24,13 @@ a {
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    z-index: 9;
     top: 0;
 }
 
 #nav-list {
     display: flex;
+    align-items: center;
 }
 
 #nav-list a {
@@ -42,6 +44,12 @@ a {
     color: white;
     background-color: #141A28;
     border-bottom: 1px solid white;
+}
+
+.bing-logo {
+    border:3px solid rgb(4, 4, 170);
+    padding: 5px;
+    color: #0288D1;
 }
 
 #SIGNUP {
@@ -105,6 +113,7 @@ a {
     background-color: rgb(224, 11, 11);
     display: none;
 }
+
 
 
 

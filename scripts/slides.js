@@ -98,6 +98,8 @@ function appendToSlides(slides_data) {
             count = 0
         }
 
-    },5000)
+    },6000)
+
+
 
 }

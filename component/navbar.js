@@ -1,7 +1,7 @@
 function navbar() {
 
         return `                <ul id="nav-list">
-        <a href="index.html"><li>Bing Star</li></a>
+        <a href="index.html"><li class="bing-logo">Bing Star</li></a>
         <a href="TV.html"><li>TV</li></a>
         <a href="movies.html"><li>Movies</li></a>
         <a href="sports.html"><li>Sports</li></a>
