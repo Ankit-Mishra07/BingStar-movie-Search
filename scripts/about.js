@@ -13,6 +13,8 @@ ShowDetailofMovie()
 let about_container = document.getElementById("about-container")
 function appendDetailOfmovie(detail) {
 
+    about_container.innerHTML = null
+
     let div = document.createElement("div")
     div.setAttribute("class" , "about-textdiv")
 
@@ -20,7 +22,7 @@ function appendDetailOfmovie(detail) {
     Title.innerText = detail.title
 
     let YG = document.createElement("p")
-    YG.innerText = detail.release_date + " | " + detail.genres[0].name + ", " + detail.genres[1].name
+    YG.innerText = detail.release_date.split("-")[0] + " | " + detail.genres[0].name + ", " + detail.genres[1].name
 
     let ImdbRate = document.createElement("p")
     ImdbRate.innerText ="IMDB Rating : "  + detail.vote_average
@@ -33,7 +35,7 @@ function appendDetailOfmovie(detail) {
         return (currentIndex == maxIndex -1) ? '' : ', '
     }
 
-    let stars = document.createElement("p")
+    let stars = document.createElement("span")
 
     fetch(`https://api.themoviedb.org/3/movie/${getid}/credits?api_key=953076d46292d5b9b918b65d89cc9419`)
 
@@ -55,6 +57,43 @@ function appendDetailOfmovie(detail) {
         posters.src = `https://image.tmdb.org/t/p/original${detail.poster_path}`
     }
 
-    div.append(posters,YG,overview,stars,ImdbRate)
-    about_container.append(div)
+    let staring = document.createElement("span")
+    staring.innerText = "Starring : " 
+
+    div.append(Title,YG,overview,staring,stars,ImdbRate)
+    about_container.append(posters,div)
 }
+
+
+async function GetCastImages() {
+
+        let res = await fetch(`https://api.themoviedb.org/3/movie/${getid}/credits?api_key=953076d46292d5b9b918b65d89cc9419`)
+
+        let data = await res.json()
+        appendCastImages(data.cast)
+}
+GetCastImages()
+let cast_box = document.getElementById("cast-imagesdiv")
+function appendCastImages(castData) {
+
+    cast_box.innerHTML = null
+    castData.forEach(({name,profile_path}) => {
+
+        if(profile_path == null) {
+            return
+        }
+
+        let div = document.createElement("div")
+        div.setAttribute("class" , "img-name")
+
+        let pic = document.createElement("img")
+        pic.src = `https://image.tmdb.org/t/p/w500${profile_path}`
+        
+        let cast_nm = document.createElement("p") 
+        cast_nm.innerText = name
+
+        div.append(pic,cast_nm)
+        cast_box.append(div)
+    })
+}
+
