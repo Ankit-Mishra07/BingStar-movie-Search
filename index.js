@@ -12,7 +12,9 @@ import {navbar} from "./component/navbar.js"
     body.addEventListener("click" , hide_showmovie)
 
     function hide_showmovie() {
-        showmovie.style.display = "none"
+        setTimeout(() => {
+            showmovie.style.display = "none"
+        },2000)
     }
 
     // for search input
@@ -32,7 +34,7 @@ import {navbar} from "./component/navbar.js"
         console.log("search:", searched_result)
     
     searched_result.forEach((Sdata) => {
-       console.log(Sdata)
+       
     let div = document.createElement("div")
     div.setAttribute("class" , "result")
 
@@ -60,7 +62,7 @@ import {navbar} from "./component/navbar.js"
 
 
     div.onclick = function() {
-        addtodetail(Sdata)
+        addtodetail(Sdata.id)
     }
     
     let Syear = Sdata.release_date
@@ -109,6 +111,8 @@ import {navbar} from "./component/navbar.js"
     }
     
 
+    //login
+
     let getdata = JSON.parse(localStorage.getItem("Bing-login"))
     if(getdata.length >= 1) {
     let user__ = getdata[getdata.length-1]
@@ -154,3 +158,18 @@ import {navbar} from "./component/navbar.js"
         window.location.href = "index.html"
 
     }
+
+
+
+
+    if(localStorage.getItem("Bing-store") === null) {
+        localStorage.setItem("Bing-store" , JSON.stringify([]))
+    }
+
+    function addtodetail(Sdata) {
+        let store = JSON.parse(localStorage.getItem("Bing-store"))
+
+        store.push(Sdata)
+         localStorage.setItem("Bing-store" , JSON.stringify(store))
+    }
+    

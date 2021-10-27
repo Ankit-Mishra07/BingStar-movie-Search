@@ -56,17 +56,15 @@ const makeCards = (id, data) => {
                 return
             }
         }
-
-        movieContainer.innerHTML += ` <div class="movie">
+    
+        movieContainer.innerHTML += ` <div class="movie" onclick="addtolocal(${item.id})">
         <img src="${img_url}${item.backdrop_path}" alt="">
         <p class="movie-title">${item.title}</p>
     </div>`;
 
-        let local = document.querySelector(".movie") 
+        // let mybings = document.getElementById("mybings")
 
-        local.onclick = function() {
-            addtolocal(item)
-        }
+        // mybings.addEventListener("click" , addtolocal)
 
     if(i == data.length -1) {
         setTimeout(() => {
@@ -77,6 +75,9 @@ const makeCards = (id, data) => {
     })
 }
 
-function addtolocal(cal) {
-    console.log("ankit:",cal)
+function addtolocal(el) {
+    let getstore = JSON.parse(localStorage.getItem("Bing-store"))
+
+    getstore.push(el)
+    localStorage.setItem("Bing-store" , JSON.stringify(getstore))
 }
