@@ -171,5 +171,9 @@ import {navbar} from "./component/navbar.js"
 
         store.push(Sdata)
          localStorage.setItem("Bing-store" , JSON.stringify(store))
+
+         setTimeout(() => {
+            window.location.href = "about.html"
+        },1500)
     }
     

@@ -80,4 +80,8 @@ function addtolocal(el) {
 
     getstore.push(el)
     localStorage.setItem("Bing-store" , JSON.stringify(getstore))
+
+    setTimeout(() => {
+        window.location.href = "about.html"
+    },1500)
 }

@@ -82,7 +82,7 @@ function appendToSlides(slides_data) {
         let des = slides_data[count].overview
         
         slide_box.innerHTML = `
-        <img src="https://image.tmdb.org/t/p/original/${backimg}" alt="" height="400px" width="100%">
+        <img src="https://image.tmdb.org/t/p/original/${backimg}" alt="" height="400px" width="100%" class="SlideShowImg">
          <div class="slide-text-box">
         <p class="slides-title">${slide_title}</p>
         <p class="slides-year-genre">${slide_date.split("-")[0]}</p>
@@ -98,8 +98,26 @@ function appendToSlides(slides_data) {
             count = 0
         }
 
+        let SlideShowImg = document.querySelector(".SlideShowImg")
+
+        SlideShowImg.onclick = function() {
+            AddToLocalSlide(slidemovie_id)
+        }
+
     },6000)
 
 
 
+}
+
+function AddToLocalSlide(slideid) {
+    let getlocal = JSON.parse(localStorage.getItem("Bing-store"))
+
+    getlocal.push(slideid)
+
+    localStorage.setItem("Bing-store" , JSON.stringify(getlocal))
+
+    setTimeout(() => {
+        window.location.href = "about.html"
+    },1500)
 }
