@@ -1,0 +1,42 @@
+.TVheading {
+    margin-top: 100px;
+    margin-left: 5%;
+    color: white;
+    font-weight: 500;
+    width: fit-content;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+#TV-BOX{
+    
+    display: grid;
+    grid-template-columns: repeat(4,24%);
+    grid-gap: 1.3%;
+    margin: 30px auto;
+    width: 90%;
+    color: white;
+}
+
+#TV-BOX > div {
+    position: relative;
+}
+#TV-BOX > div:hover .tvtitle {
+    opacity: 1;
+}
+.tvtitle {
+    position: absolute;
+    bottom: 0;
+    font-size: 18px;
+    width: 100%;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px;
+    overflow: hidden;
+    opacity: 0;
+}
+#TV-BOX img {
+    width:100%;
+    height:200px;
+    border-radius: 10px;
+}
