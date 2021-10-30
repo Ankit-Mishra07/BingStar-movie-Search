@@ -28,7 +28,7 @@ function appendDetailOfmovie(detail) {
     ImdbRate.innerText ="IMDB Rating : "  + detail.vote_average
 
     let overview = document.createElement("p")
-    overview.innerText = detail.overview
+    overview.innerText = detail.overview.substring(0, 200) + '...';
 
     
     const formatString = (currentIndex, maxIndex) => {
@@ -97,3 +97,66 @@ function appendCastImages(castData) {
     })
 }
 
+
+async function VideoClips(getid) {
+
+    let res = await fetch(`https://api.themoviedb.org/3/movie/${getid}/videos?&api_key=953076d46292d5b9b918b65d89cc9419`)
+    let data = await res.json()
+
+    let trailerContainer = document.getElementById("video-clips-box")
+
+    let maxClip = (data.results.length > 4) ? 4 : data.results.length
+
+    for(let i = 0; i < maxClip; i++) {
+        trailerContainer.innerHTML += `
+        <iframe src="https://youtube.com/embed/${data.results[i].key}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+    }
+}
+
+VideoClips(getid)
+
+
+
+
+//recomdations
+
+async function Recommendations(getid) {
+
+    let res = await fetch(`https://api.themoviedb.org/3/movie/${getid}/recommendations?&api_key=953076d46292d5b9b918b65d89cc9419`)
+
+    let data = await res.json()
+
+    console.log("data:",data)
+
+    let container = document.getElementById("recommended")
+    let img_url = "https://image.tmdb.org/t/p/w500"
+    for(let i = 0; i < 16; i++) {
+        if(data.results[i].backdrop_path == null) {
+            i++
+        }
+        container.innerHTML += `
+        <div class="Recmovie" onclick="Recomaddtolocal(${data.results[i].id})">
+            <img src="${img_url}${data.results[i].backdrop_path}" alt="">
+            <p class="Recmovie-title">${data.results[i].title}</p>
+            </div>`
+    }    
+}
+
+Recommendations(getid)
+
+
+function Recomaddtolocal(Rid) {
+
+    let RgetLocal = JSON.parse(localStorage.getItem("Bing-store"))
+
+    RgetLocal.push(Rid)
+
+    localStorage.setItem("Bing-store" , JSON.stringify(RgetLocal))
+
+
+    setTimeout(() => {
+
+        window.location.href = "about.html"
+
+    },1500)
+}

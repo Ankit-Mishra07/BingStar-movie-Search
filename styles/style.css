@@ -49,7 +49,8 @@ a {
 .bing-logo {
     border:3px solid rgb(4, 4, 170);
     padding: 5px;
-    color: #0288D1;
+    color: #03a4fa;
+    background: rgba(0, 0, 0, 0.2);
 }
 
 #SIGNUP {
