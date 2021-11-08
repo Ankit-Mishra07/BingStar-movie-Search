@@ -113,6 +113,11 @@ import {navbar} from "./component/navbar.js"
 
     //login
 
+    if(localStorage.getItem("Bing-login") === null) {
+        localStorage.setItem("Bing-login" , JSON.stringify([]))
+    }
+    
+
     let getdata = JSON.parse(localStorage.getItem("Bing-login"))
     if(getdata.length >= 1) {
     let user__ = getdata[getdata.length-1]
@@ -155,7 +160,10 @@ import {navbar} from "./component/navbar.js"
         let LOGINn = document.getElementById("LOGIN")
         LOGINn.style.display = "block"
 
-        window.location.href = "index.html"
+        setTimeout(() => {
+            window.location.href = "index.html"
+        }, 1500);
+       
 
     }
 
